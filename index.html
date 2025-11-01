@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Mobile Golf Scorekeeper</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="header">
+      <h1>Golf Scorekeeper</h1>
+      <button id="reset-button" class="ghost">Reset</button>
+    </header>
+
+    <section id="setup" class="card">
+      <h2>Start a Round</h2>
+      <label>
+        Holes:
+        <select id="holes-select">
+          <option value="9">9</option>
+          <option value="18">18</option>
+        </select>
+      </label>
+
+      <label>
+        Players:
+        <select id="players-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </label>
+
+      <div id="player-names">
+        
+      </div>
+
+      <button id="start-round" class="primary">Start Round</button>
+      <p class="muted small">Tip: numeric keypad will appear for score inputs.</p>
+    </section>
+
+    <section id="scoreboard" class="hidden">
+      <div class="score-controls">
+        <div>
+          <strong id="holes-count">0</strong> holes • <strong id="player-count">0</strong> players
+        </div>
+        <div>
+          <button id="undo-button" class="ghost">Undo last</button>
+          <button id="clear-last-hole" class="ghost">Clear hole</button>
+        </div>
+      </div>
+
+      <div id="scores-container" class="card scrollable">
+        
+      </div>
+
+      <div class="bottom-bar card small">
+        <div>
+          <strong>Current hole:</strong> <span id="current-hole">—</span>
+        </div>
+        <div>
+          <button id="prev-hole" class="ghost">◀ Prev</button>
+          <button id="next-hole" class="primary">Next ▶</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer muted small">
+      <div id="wake-status">Wake lock: <span id="wake-state">off</span></div>
+    </footer>
+  </main>
+
+  <template id="player-name-template">
+    <label>
+      Name:
+      <input type="text" class="player-name" maxlength="20" />
+    </label>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
